@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/public/css/main.css">
+    </head>
+    
+    <body>
+        <form action="/" method="POST" id="form1">
+            <input type="text" name="email" placeholder="E-mail" value="<%= data.userQuery%>">
+            <input type="password" name="pass" placeholder="Password" value="<%= data.searchResults[1] %>">
+            <% if(data.LoggedIn){ %>
+                <h2>You are trying to sign in as <%= data.userQuery%> </h2>
+            <% } %>
+            <ul>
+                <% data.searchResults.sort().forEach(result=>{ %>
+                    <li> <%= result%> </li>
+                <% }); %>
+            </ul>
+
+
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="public/js/example.js"></script>
+</html>
